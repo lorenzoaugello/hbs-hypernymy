@@ -1,4 +1,4 @@
-# Hierarchy Beyond Similarity: experiment code
+# Hierarchy Beyond Similarity
 
 This repository accompanies the work behind the paper **“Hierarchy Beyond Similarity: A Comparison between Taxonomic and Similarity Representations in Language Models.”**
 
