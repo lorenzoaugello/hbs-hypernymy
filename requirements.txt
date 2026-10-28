@@ -1,0 +1,10 @@
+numpy>=1.24,<3
+pandas>=2.0,<3
+scipy>=1.10,<2
+scikit-learn>=1.3,<2
+nltk>=3.8,<4
+transformers>=4.40,<5
+tqdm>=4.65,<5
+matplotlib>=3.7,<4
+# Install a PyTorch build matching your hardware from https://pytorch.org/get-started/locally/.
+wordfreq>=3.0,<4
