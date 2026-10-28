@@ -38,7 +38,7 @@ This writes:
 
 The dataset build contains 6,875 words, 477 branches, 1,307 chains, and 15,011 pair rows. The script prints a warning if generated aggregate counts differ. To explicitly rebuild and replace an existing pickle, use `python scripts/prepare_dataset.py --force`.
 
-The source builder seeds its Python and NumPy RNGs and uses a CRC32 branch assignment for the 30/70 dev/test split. For exact row-level reproduction, also record the NLTK WordNet corpus version and the installed `wordfreq` version. Those were not pinned in the supplied notebook. `work/` is excluded from Git because it contains generated data and large model caches; commit or distribute the manifest separately if your release process requires it.
+The source builder seeds its Python and NumPy RNGs and uses a CRC32 branch assignment for the 30/70 dev/test split. For exact row-level reproduction, also record the NLTK WordNet corpus version and the installed `wordfreq` version. `work/` is excluded from Git because it contains generated data and large model caches; commit or distribute the manifest separately if your release process requires it.
 
 Check the generated dataset before running the experiments:
 
