@@ -1,0 +1,12 @@
+import matplotlib; import matplotlib.pyplot as plt
+fig, ax = plt.subplots(2, 2, figsize=(14, 9))
+d0 = dirrep[(dirrep.base_mode == "cos") & (dirrep.subset == "frequency-matched") & dirrep.family.isin(["A", "SA1", "diff", "a_only"])]; d0.pivot_table(index="family", columns="model", values="auc").plot.bar(ax=ax[0, 0], legend=False); ax[0, 0].axhline(.5, color="k", lw=.8); ax[0, 0].set_title("Block A: direction AUC, frequency-matched subset (cos base)")
+for m, g in wh4.groupby("model"): ax[0, 1].plot(g.layer, g.d_rich, "o-", label=f"{m.split('/')[-1]} Δρ rich"); ax[0, 1].plot(g.layer, g.emergent, "x--", alpha=.6)
+ax[0, 1].axhline(0, color="k", lw=.8); ax[0, 1].set_title("Block B: Δρ over rich confounds (solid) / emergent gain over layer 0 (dashed)"); ax[0, 1].legend(fontsize=6)
+for m, g in curve4[curve4.eraser == "hier"].groupby("model"): ax[1, 0].plot(g["rank"], g.rho, "o-", label=f"{m.split('/')[-1]} gen ρ after hier eraser")
+for m, g in curve4[curve4.eraser == "topic"].groupby("model"): ax[1, 0].plot(g["rank"], g.acc, "x--", alpha=.5)
+ax[1, 0].set_title("Block C: INLP to rank 128 (solid: generality ρ; dashed: topic acc)"); ax[1, 0].legend(fontsize=6)
+if "steer_main4" in globals(): steer_main4.pivot_table(index="model", columns="direction", values="slope_nats").plot.bar(ax=ax[1, 1]); ax[1, 1].set_title("Block D: steering slope (nats / unit alpha)")
+else: ax[1, 1].text(.1, .5, "Blocks D/E not run", transform=ax[1, 1].transAxes)
+plt.tight_layout(); plt.savefig(f"{CFG['OUT_DIR']}/summary_figure_v4.pdf"); plt.show()
+fig.savefig('work/followup/v4_diagnostic_figure.png', dpi=200, bbox_inches='tight')
